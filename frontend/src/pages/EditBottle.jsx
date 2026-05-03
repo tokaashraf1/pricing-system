@@ -17,7 +17,7 @@ export default function EditBottle() {
   const [selectedIngredient, setSelectedIngredient] = useState("");
   const [quantity, setQuantity] = useState("");
 
-  // 🟢 fetch bottle + ingredients
+  
   useEffect(() => {
     const fetchData = async () => {
       const res = await api.get(`/bottles/${id}`);
@@ -35,7 +35,7 @@ export default function EditBottle() {
     fetchData();
   }, [id]);
 
-  // 🟢 fetch all ingredients
+  
   useEffect(() => {
     const fetchIngredients = async () => {
       const res = await api.get("/ingredients");
@@ -45,7 +45,7 @@ export default function EditBottle() {
     fetchIngredients();
   }, []);
 
-  // 🟢 add ingredient
+  
   const addIngredient = () => {
     if (!selectedIngredient || !quantity) return;
 
@@ -73,7 +73,7 @@ export default function EditBottle() {
     setQuantity("");
   };
 
-  // 🟢 update
+  
   const handleUpdate = async () => {
     await api.put(`/bottles/${id}`, form);
     navigate("/");
