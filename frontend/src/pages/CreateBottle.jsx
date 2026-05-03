@@ -16,7 +16,7 @@ export default function CreateBottle() {
   const [selectedIngredient, setSelectedIngredient] = useState("");
   const [quantity, setQuantity] = useState("");
 
-  // 🟢 fetch all ingredients
+  
   useEffect(() => {
     const fetchIngredients = async () => {
       const res = await api.get("/ingredients");
@@ -26,7 +26,7 @@ export default function CreateBottle() {
     fetchIngredients();
   }, []);
 
-  // 🟢 add ingredient to list
+  
   const addIngredient = () => {
     if (!selectedIngredient || !quantity) return;
 
@@ -54,7 +54,7 @@ export default function CreateBottle() {
     setQuantity("");
   };
 
-  // 🟢 submit
+  
   const handleSubmit = async () => {
     await api.post("/bottles", form);
     navigate("/");
@@ -86,7 +86,7 @@ export default function CreateBottle() {
 
       <hr />
 
-      {/* 🟢 ingredient selector */}
+      
       <select
         value={selectedIngredient}
         onChange={(e) => setSelectedIngredient(e.target.value)}
